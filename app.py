@@ -1,7 +1,6 @@
 import plotly.express as px
 import pandas as pd
 import streamlit as st
-import plotly.graph_objs as go
 
 password_input = st.text_input("암호를 입력해주세요",type= "password")
 
@@ -51,10 +50,9 @@ if password_input == "cmcpl":
 
             # 위에서부터 시작하게 Y축 역방향으로 설정
             fig.update_yaxes(autorange="reversed")
-            fig.show()
+            #fig.show()
             #st.set_option('deprecation.showPyplotGlobalUse', False)
-            fig_widget = go.FigureWidget(fig)
-            st.plotly_chart(fig_widget)
+            st.plotly_chart(fig)
             
     else:
         st.write("Please upload your file")
