@@ -31,22 +31,6 @@ if password_input == "cmcpl":
             elif option == "Completion %":
                 fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct")
 
-            # 세로 그리드 선 설정 (매월)
-            fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
-
-            # 레이아웃 업데이트 (Start의 최소값부터 Finish의 최대값까지 그리드 선을 그리기 위해)
-            fig.update_layout(
-                xaxis=dict(
-                    range=[df['Start'].min(), df['Finish'].max()],
-                    tick0=df['Start'].min(),
-                    dtick="M1",  # 그리드 선 간격 설정 (매월)
-                    minor=dict(
-                        tick0=df['Start'].min(),
-                        dtick="M1"
-                    )
-                )
-            )
-
             fig.update_xaxes(
                 dtick="M1",  # 매월 표시
                 tickformat="%Y-%m-%d",  # 날짜 형식 설정
