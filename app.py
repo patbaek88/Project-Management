@@ -43,7 +43,7 @@ if password_input == "cmcpl":
             max_date = df['Finish'].max()
 
            # 연도 추가
-            years = pd.date_range(start="0", end=9999, freq='YS')
+            years = pd.date_range(start="0000-01-01", end="9999-12-31", freq='YS')
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
