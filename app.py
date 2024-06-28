@@ -1,6 +1,7 @@
 import plotly.express as px
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 
 password_input = st.text_input("암호를 입력해주세요",type= "password")
 
