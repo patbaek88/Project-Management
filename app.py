@@ -36,6 +36,9 @@ if password_input == "cmcpl":
                 tickformat="%Y-%m-%d",  # 날짜 형식 설정
                 tickangle=45  # 날짜 라벨 각도 설정
             )
+
+            # 세로 그리드 선 설정 (매월)
+            fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
     
 
             # 위에서부터 시작하게 Y축 역방향으로 설정
