@@ -8,20 +8,21 @@ if password_input == "cmcpl":
     st.title("Project Management App")
     st.write("Upload your project timeline file and generate a Gantt chart")
     st.write("Step 1: Download the project timeline template")
-    df = pd.read_csv('template.csv')
-    template = df.to_csv(index=False)
+    temp_df = pd.read_csv('template.csv')
+    template = temp_df.to_csv(index=False)
     template.encode("utf-8")
     download = st.download_button(label="Download Template", data= template, file_name = 'template.csv', mime="text/csv")
     st.write("")
     st.write("Step 2: Upload your project timeline file")
-    data = st.file_uploader('Fill out the project timeline template and upload your file here.', type=['csv'])
-    if data is not None:
-        st.write(data)
+    uploaded_file = st.file_uploader('Fill out the project timeline template and upload your file here.', type=['csv'])
+    if uploaded_file is not None:
+        df = pd.DataFrame(data = data, index =False)
+        st.write(df)
         st.write("")
         st.write("Step 3: Generate a Gantt chart")
         if st.button("Generate a Gantt chart"):
             # 데이터셋 만들기
-            df = pd.DataFream(data=data)
+            #df = pd.DataFrame(data=data)
             # 시작일과 종료일의 최소값과 최대값 구하기
             min_date = pd.to_datetime(df['Start']).min()
             max_date = pd.to_datetime(df['Finish']).max()
