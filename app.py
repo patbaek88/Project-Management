@@ -1,10 +1,23 @@
 import plotly.express as px
 import pandas as pd
+import streamlit as st
 
-#Template 다운로드
-st.write
+password_input = st.text_input("암호를 입력해주세요",type= "password")
 
-# 데이터셋 만들기
+if password_input == "cmcpl":
+    st.title("Project Management App")
+    st.write("Upload your project timeline file and generate a Gantt chart")
+    st.write("Step 1: Download the project timeline template")
+    download = st.download_button(label="Download Template", file_name = 'template.csv')
+    st.write("")
+    st.write("Step 2: Upload your project timeline file")
+    data = st.file_uploader('Fill out the project timeline template and upload your file here.', type=['csv'])
+    st.write("")
+    st.write("Step 3: Generate a Gantt chart")
+    
+             
+  
+   # 데이터셋 만들기
 df = pd.read_csv('data.csv')
 
 # 시작일과 종료일의 최소값과 최대값 구하기
