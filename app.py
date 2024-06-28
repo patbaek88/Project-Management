@@ -50,7 +50,7 @@ if password_input == "cmcpl":
             # 위에서부터 시작하게 Y축 역방향으로 설정
             fig.update_yaxes(autorange="reversed")
             fig.show()
-        else:
-            st.write("Please upload your file")
     else:
-        st.write("")
+        st.write("Please upload your file")
+else:
+    st.write("")
