@@ -51,7 +51,7 @@ if password_input == "cmcpl":
             for year, label in zip(year_ticks, year_labels):
                 fig.add_annotation(
                     x=year,
-                    y=0,  # x축 위로 살짝 올림
+                    y=-0.5,  # 위치조절
                     showarrow=False,
                     text=label,
                     xref="x",
