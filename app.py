@@ -47,24 +47,24 @@ if password_input == "cmcpl":
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
-           # 각 월의 중간 지점에 연도 표시
-            tickvals = []
-            ticktext = []
-            for year in years:
-                year_start = pd.Timestamp(year)
-                year_end = pd.Timestamp(year + pd.DateOffset(years=1))
-                months = pd.date_range(start=year_start, end=year_end, freq='MS')
-                mid_month = months[int(len(months) / 2)]
-                tickvals.append(mid_month)
-                ticktext.append(mid_month.strftime('%Y'))
+          # 연도 레이블을 별도로 추가
+            for year, label in zip(year_ticks, year_labels):
+                fig.add_annotation(
+                    x=year,
+                    y=1.05,  # x축 위로 살짝 올림
+                    showarrow=False,
+                    text=label,
+                    xref="x",
+                    yref="paper"
+                )
 
-            # x축 설정 업데이트
-            fig.update_xaxes(
-                tickvals=tickvals,
-                ticktext=ticktext,
-                tickangle=0,
-                tickmode="array",
-                ticklabelmode="period"
+            # x축 범위 설정 및 그리드 추가
+            fig.update_layout(
+                xaxis=dict(
+                    showgrid=True,      # 그리드 표시
+                    gridwidth=1,
+                    gridcolor='LightGray'
+                )
             )
     
 
