@@ -1,0 +1,12 @@
+﻿Resource,Task,Start,Finish,Completion_pct
+Team1_name,Activity 1,2024-06-01,2024-11-30,0
+Team1_name,Activity 2,2024-12-01,2025-05-31,0
+Team1_name,Activity 3,2025-06-01,2025-11-30,0
+Team2_name,Activity 4,2024-05-01,2024-10-31,0
+Team2_name,Activity 5,2024-06-01,2024-12-31,0
+Team2_name,Activity 6,2024-08-01,2025-02-28,0
+Team3_name,Activity 7,2024-06-01,2024-12-31,0
+Team3_name,Activity 8,2024-11-01,2025-06-30,0
+Team3_name,Activity 9,2025-01-01,2026-03-31,0
+Team3_name,Activity 10,2026-01-01,2026-03-31,0
+Team3_name,Activity 11,2025-07-01,2026-03-31,0
