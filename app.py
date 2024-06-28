@@ -15,7 +15,7 @@ if password_input == "cmcpl":
     st.write("")
     st.write("Step 2: Upload your project timeline file")
     data = st.file_uploader('Fill out the project timeline template and upload your file here.', type=['csv'])
-    if data = True:
+    if data is not None:
         st.write(data)
         st.write("")
         st.write("Step 3: Generate a Gantt chart")
