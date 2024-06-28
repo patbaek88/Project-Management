@@ -20,7 +20,7 @@ if password_input == "cmcpl":
         df = st.experimental_data_editor(df_origin, num_rows="dynamic")
         #st.dataframe(df)
         st.write("")
-        option = st.selectbox("View Gantt Chart by:", ("Team", "Completion %")
+        option = st.selectbox("View Gantt Chart by:", ("Team", "Completion %"))
         st.write("Step 3: Generate a Gantt chart")
         if st.button("Generate a Gantt chart"):
             # 데이터셋 만들기
