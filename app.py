@@ -42,9 +42,8 @@ if password_input == "cmcpl":
             fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
 
             # 연도 표시를 위한 위치와 텍스트 설정
-            years = pd.date_range(start=df['Start'].min(), end=df['Finish'].max(), freq='YS').to_pydatetime()
-            year_ticks = [date for date in years]
-            year_labels = [date.strftime('%Y') for date in years]
+            min_date = df['Start'].min()
+            max_date = df['Finish'].max()
 
            # 연도 추가
             years = pd.date_range(start=min_date, end=max_date, freq='YS')
