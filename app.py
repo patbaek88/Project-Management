@@ -45,19 +45,23 @@ if password_input == "cmcpl":
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
+            # 연도 표시를 위한 위치와 텍스트 설정
+            min_date = df['Start'].min()
+            max_date = df['Finish'].max()
+            years = pd.date_range(start=min_date, end=max_date + pd.DateOffset(years=1), freq='YS')
+            year_ticks = [date for date in years]
+            year_labels = [date.strftime('%Y') for date in years]
+
             # x축 범위 설정 및 연도 라벨 추가
             fig.update_layout(
                 xaxis=dict(
-                    range=[df['Start'].min(), df['Finish'].max()],
-                    tick0=df['Start'].min(),
-                    dtick="M1",
-                    minor=dict(
-                        tick0=df['Start'].min(),
-                        dtick="M1"
-                    ),
                     tickvals=year_ticks,
                     ticktext=year_labels,
-                    ticklabelposition="outside top"  # 연도 라벨을 x축 위에 표시
+                    ticklabelposition="outside top",  # 연도 라벨을 x축 위에 표시
+                    tickmode="linear",  # 눈금 라벨을 선형으로 표시
+                    showgrid=True,      # 그리드 표시
+                    gridwidth=1,
+                    gridcolor='LightGray'
                 )
             )
     
