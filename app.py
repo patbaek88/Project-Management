@@ -49,7 +49,7 @@ if password_input == "cmcpl":
             # 연도 표시를 위한 위치와 텍스트 설정
             min_date = df['Start'].min()
             max_date = df['Finish'].max()
-            years = pd.date_range(start=min_date, end=max_date + pd.DateOffset(years=1), freq='YS')
+            years = pd.date_range(start=min_date, end=max_date + pd.offsets.DateOffset(years=1), freq='YS')
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
