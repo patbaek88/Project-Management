@@ -33,12 +33,33 @@ if password_input == "cmcpl":
 
             fig.update_xaxes(
                 dtick="M1",  # 매월 표시
-                tickformat="%Y-%m",  # 날짜 형식 설정
-                tickangle=45  # 날짜 라벨 각도 설정
+                tickformat="%m",  # 날짜 형식 설정
+                tickangle=0  # 날짜 라벨 각도 설정
             )
 
             # 세로 그리드 선 설정 (매월)
             fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
+
+            # 연도 표시를 위한 위치와 텍스트 설정
+            years = pd.date_range(start=df['Start'].min(), end=df['Finish'].max(), freq='YS').to_pydatetime()
+            year_ticks = [date for date in years]
+            year_labels = [date.strftime('%Y') for date in years]
+
+            # x축 범위 설정 및 연도 라벨 추가
+            fig.update_layout(
+                xaxis=dict(
+                    range=[df['Start'].min(), df['Finish'].max()],
+                    tick0=df['Start'].min(),
+                    dtick="M1",
+                    minor=dict(
+                        tick0=df['Start'].min(),
+                        dtick="M1"
+                    ),
+                    tickvals=year_ticks,
+                    ticktext=year_labels,
+                    ticklabelposition="outside top"  # 연도 라벨을 x축 위에 표시
+                )
+            )
     
 
             # 위에서부터 시작하게 Y축 역방향으로 설정
