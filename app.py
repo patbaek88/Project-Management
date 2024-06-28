@@ -18,7 +18,7 @@ if password_input == "cmcpl":
     if uploaded_file is not None:
         df_origin = pd.read_csv(uploaded_file)
         df = st.experimental_data_editor(df_origin, num_rows="dynamic")
-        st.dataframe(df)
+        #st.dataframe(df)
         st.write("")
         st.write("Step 3: Generate a Gantt chart")
         if st.button("Generate a Gantt chart"):
