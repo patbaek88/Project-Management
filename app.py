@@ -47,7 +47,7 @@ if password_input == "cmcpl":
             year_labels = [date.strftime('%Y') for date in years]
 
            # 연도 추가
-            years = pd.date_range(start=min_date, end=max_date + pd.DateOffset(years=1), freq='YS')
+            years = pd.date_range(start=min_date, end=max_date, freq='YS')
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
