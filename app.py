@@ -51,7 +51,7 @@ if password_input == "cmcpl":
             max_date = df['Finish'].max()
 
             # max_date의 연도를 1년 추가
-            end_date = max_date + pd.DateOffset(years=1)
+            end_date = "2100"
 
             # 연도 범위 생성
             years = pd.date_range(start=min_date, end=end_date, freq='YS')
