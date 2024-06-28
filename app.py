@@ -38,15 +38,12 @@ if password_input == "cmcpl":
                 tickangle=0  # 날짜 라벨 각도 설정
             )
 
-            # 세로 그리드 선 설정 (매월)
-            #fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
-
             # 연도 표시를 위한 위치와 텍스트 설정
             min_date = df['Start'].min()
             max_date = df['Finish'].max()
 
            # 연도 추가
-            years = pd.date_range(start=min_date, end=max_date, freq='YS')
+            years = pd.date_range(start="0", end=9999, freq='YS')
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
