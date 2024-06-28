@@ -65,8 +65,8 @@ if password_input == "cmcpl":
             fig.update_layout(
                 xaxis=dict(
                     showgrid=True,      # 그리드 표시
-                    gridwidth=1,
-                    gridcolor='LightGray'
+                    gridwidth=2,
+                    gridcolor='Gray'
                 )
             )
     
