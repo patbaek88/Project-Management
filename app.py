@@ -46,10 +46,15 @@ if password_input == "cmcpl":
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
-            # 연도 표시를 위한 위치와 텍스트 설정
+           # 연도 표시를 위한 위치와 텍스트 설정
             min_date = df['Start'].min()
             max_date = df['Finish'].max()
-            years = pd.date_range(start=min_date, end=max_date + pd.offsets.DateOffset(years=1), freq='YS')
+
+            # max_date의 연도를 1년 추가
+            end_date = max_date + pd.DateOffset(years=1)
+
+            # 연도 범위 생성
+            years = pd.date_range(start=min_date, end=end_date, freq='YS')
             year_ticks = [date for date in years]
             year_labels = [date.strftime('%Y') for date in years]
 
