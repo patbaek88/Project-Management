@@ -9,7 +9,7 @@ if password_input == "cmcpl":
     st.write("Upload your project timeline file and generate a Gantt chart")
     st.write("Step 1: Download the project timeline template")
     template = pd.read_csv('template.csv')
-    download = st.download_button(label="Download Template", data= template, file_name = 'template.csv', mime="csv")
+    download = st.download_button(label="Download Template", data= template, file_name = 'template.csv', mime="text/csv")
     st.write("")
     st.write("Step 2: Upload your project timeline file")
     data = st.file_uploader('Fill out the project timeline template and upload your file here.', type=['csv'])
