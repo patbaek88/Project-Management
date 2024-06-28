@@ -11,6 +11,7 @@ if password_input == "cmcpl":
     temp_df = pd.read_csv('template.csv')
     template = temp_df.to_csv(index=False)
     template.encode("utf-8")
+    wt.write(template)
     download = st.download_button(label="Download Template", data= template, file_name = 'template.csv', mime="text/csv")
     st.write("")
     st.write("Step 2: Upload your project timeline file")
