@@ -39,7 +39,7 @@ if password_input == "cmcpl":
             )
 
             # 세로 그리드 선 설정 (매월)
-            fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
+            #fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
 
             # 연도 표시를 위한 위치와 텍스트 설정
             min_date = df['Start'].min()
@@ -65,8 +65,8 @@ if password_input == "cmcpl":
             fig.update_layout(
                 xaxis=dict(
                     showgrid=True,      # 그리드 표시
-                    gridwidth=2,
-                    gridcolor='Gray'
+                    gridwidth=1,
+                    gridcolor='LightGray'
                 )
             )
     
