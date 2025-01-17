@@ -24,9 +24,7 @@ if password_input == "cmcpl":
         st.write("")
         option = st.selectbox("View Gantt Chart by:", ("Team", "Completion %"))
         st.write("Step 3: Generate a Gantt chart")
-        if st.button("Generate a Gantt chart"):  
-
-    if st.button("Generate a Gantt chart"):
+        if st.button("Generate a Gantt chart"):    
             # 데이터프레임을 Resource와 Start 열을 기준으로 정렬
             #df = df.sort_values(['Resource', 'Start'])            
             # Gantt Chart 만들기
