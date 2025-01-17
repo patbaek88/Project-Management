@@ -82,7 +82,7 @@ if password_input == "cmcpl":
                 )
             )
 
-            for date in year _ticks
+            for date in year_ticks
                 fig.add_vline(
                     x=date,
                     line_width=2,
