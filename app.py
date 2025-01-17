@@ -93,11 +93,9 @@ if password_input == "cmcpl":
             
             
             # 위에서부터 시작하게 Y축 역방향으로 설정
-            fig.update_yaxes(autorange="reversed")
-            #fig.show()
-            #st.set_option('deprecation.showPyplotGlobalUse', False)
-
-            #fig.update_traces(textposition="inside", textfont=dict(color="white"))
+            fig.update_yaxes(autorange="reversed")     
+           
+            fig.update_traces(textposition="outside", textfont=dict(color="black"))
             
             st.plotly_chart(fig)
 
