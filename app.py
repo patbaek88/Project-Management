@@ -26,40 +26,78 @@ if password_input == "cmcpl":
         st.write("Step 3: Generate a Gantt chart")
         if st.button("Generate a Gantt chart"):  
 
-    if uploaded_file is not None:
-        df_origin = pd.read_csv(uploaded_file)
-        df = st.data_editor(df_origin, num_rows="dynamic")
+   if st.button("Generate a Gantt chart"):       
+            # 데이터프레임을 Resource와 Start 열을 기준으로 정렬
+            #df = df.sort_values(['Resource', 'Start'])            
+            # Gantt Chart 만들기
+            if option == "Team":
+                fig = go.Figure(go.Timeline(
+                    x=[df["Start"], df["Finish"]],
+                    y=[df["Task"]],
+                    text=[df["Task"]],
+                    orientation="v",
+                    line=dict(color="blue"),
+                    textposition="bottom center"
+                ))
 
-        # Gantt 차트 생성
-        fig = go.Figure(go.Timeline(
-            x=[df["Start"], df["Finish"]],
-            y=[df["Task"]],
-            text=[df["Task"]],
-            orientation="v",
-            line=dict(color="blue"),
-            textposition="bottom center"
-        ))
 
-        fig.update_layout(
-            xaxis=dict(
-                rangeslider_visible=False,
-                showgrid=True,
-                gridwidth=1,
-                gridcolor='LightGray'
-            ),
-            yaxis=dict(
-                automargin=True,
-                nticks=len(df["Task"]),
-                gridcolor='LightGray',
-                gridwidth=1,
-                zeroline=False
+            elif option == "Completion %":
+                fig = go.Figure(go.Timeline(
+                    x=[df["Start"], df["Finish"]],
+                    y=[df["Task"]],
+                    text=[df["Task"]],
+                    orientation="v",
+                    line=dict(color="blue"),
+                    textposition="bottom center"
+                ))
+
+
+
+            fig.update_xaxes(
+                dtick="M1",  # 매월 표시
+                tickformat="%m",  # 날짜 형식 설정
+                tickangle=0  # 날짜 라벨 각도 설정
             )
-        )
 
-        st.plotly_chart(fig)
+            # 연도 표시를 위한 위치와 텍스트 설정
+            min_date = df['Start'].min()
+            max_date = df['Finish'].max()
+
+           # 연도 추가
+            years = pd.date_range(start=min_date, end=max_date, freq='YS')
+            year_ticks = [date for date in years]
+            year_labels = [date.strftime('%Y') for date in years]
+
+          # 연도 레이블을 별도로 추가
+            for year, label in zip(year_ticks, year_labels):
+                fig.add_annotation(
+                    x=year,
+                    y=-0.05,  # 위치조절
+                    showarrow=False,
+                    text=label,
+                    xref="x",
+                    yref="paper"
+                )
+
+            # x축 범위 설정 및 그리드 추가
+            fig.update_layout(
+                xaxis=dict(
+                    showgrid=True,      # 그리드 표시
+                    gridwidth=1,
+                    gridcolor='LightGray'
+                )
+            )
+    
+            # 위에서부터 시작하게 Y축 역방향으로 설정
+            fig.update_yaxes(autorange="reversed")
+            #fig.show()
+            #st.set_option('deprecation.showPyplotGlobalUse', False)
+            st.plotly_chart(fig)
+
+            # 막대 위에 'Task' 이름 추가 (text 속성 사용)
+            fig.update_traces(text=df['Task'], textposition="inside", textfont=dict(color="white"))
 
     else:
         st.write("Please upload your file")
-
 else:
     st.write("")
