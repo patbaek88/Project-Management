@@ -40,7 +40,7 @@ if password_input == "cmcpl":
             fig.update_xaxes(
                 dtick="M1",  # 매월 표시
                 tickformat="%m",  # 날짜 형식 설정
-                tickangle=0  # 날짜 라벨 각도 설정
+                tickangle=30  # 날짜 라벨 각도 설정
             )
 
             # 연도 표시를 위한 위치와 텍스트 설정
