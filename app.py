@@ -18,7 +18,7 @@ if password_input == "cmcpl":
     uploaded_file = st.file_uploader('Fill out the project timeline template and upload your file here.', type=['csv'])
     if uploaded_file is not None:
         df_origin = pd.read_csv(uploaded_file)
-        df = st.experimental_data_editor(df_origin, num_rows="dynamic")
+        df = st.data_editor(df_origin, num_rows="dynamic")
         #st.dataframe(df)
         st.write("")
         option = st.selectbox("View Gantt Chart by:", ("Team", "Completion %"))
