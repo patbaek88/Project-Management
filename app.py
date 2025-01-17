@@ -77,8 +77,12 @@ if password_input == "cmcpl":
             #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.plotly_chart(fig)
 
+            df['Text'] = df['Task'] + '<br>' + df['Start'] + '→' + df['Finish']
+
             # 막대 위에 'Task' 이름 추가 (text 속성 사용)
-            #fig.update_traces(text=df['Task'], textposition="inside", textfont=dict(color="white"))
+            fig.update_traces(textposition="inside", textfont=dict(color="white"))
+            fig.update_traces(title="Tasks")
+            fig.update_xaxes(title="Timeline")
 
     else:
         st.write("Please upload your file")
