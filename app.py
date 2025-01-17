@@ -29,13 +29,11 @@ if password_input == "cmcpl":
             # Gantt Chart 만들기
             if option == "Team":
                 fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource")
-                # 막대 위에 'Task' 이름 추가 (text 속성 사용)
-                fig.update_traces(text=df['Task'], textposition="top center")  # textposition="top center"로 막대 위에 텍스트 위치 지정
+
 
             elif option == "Completion %":
                 fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct")
-                # 막대 위에 'Task' 이름 추가 (text 속성 사용)
-                fig.update_traces(text=df['Task'], textposition="top center")  # textposition="top center"로 막대 위에 텍스트 위치 지정
+
 
 
             fig.update_xaxes(
@@ -79,7 +77,8 @@ if password_input == "cmcpl":
             #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.plotly_chart(fig)
 
-
+            # 막대 위에 'Task' 이름 추가 (text 속성 사용)
+            fig.update_traces(text=df['Task'], textposition="top center")  # textposition="top center"로 막대 위에 텍스트 위치 지정
     else:
         st.write("Please upload your file")
 else:
