@@ -78,7 +78,7 @@ if password_input == "cmcpl":
             st.plotly_chart(fig)
 
             # 막대 위에 'Task' 이름 추가 (text 속성 사용)
-            fig.update_traces(text=df['Task'], textposition="top center")  # textposition="top center"로 막대 위에 텍스트 위치 지정
+            fig.update_traces(text=df['Task'], textposition="outside")
     else:
         st.write("Please upload your file")
 else:
