@@ -35,7 +35,7 @@ if password_input == "cmcpl":
             elif option == "Completion %":
                 fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct",   category_orders={"Task": df["Task"].tolist()[::-1]}, text = "Text")
 
-
+            
 
             fig.update_xaxes(
                 dtick="M1",  # 매월 표시
@@ -81,7 +81,15 @@ if password_input == "cmcpl":
                     gridcolor='LightGray'
                 )
             )
-    
+
+            for date in year ticks
+                fig.add_vline(
+                    x=date,
+                    line_width=2,
+                    line_dash="dash",
+                    line_color="black"
+                )
+            
             # 위에서부터 시작하게 Y축 역방향으로 설정
             fig.update_yaxes(autorange="reversed")
             #fig.show()
