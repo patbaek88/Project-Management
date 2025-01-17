@@ -75,6 +75,7 @@ if password_input == "cmcpl":
             # y축 범위 설정 및 그리드 추가
             fig.update_layout(
                 yaxis=dict(
+                    tickson="boundaries",
                     showgrid=True,      # 그리드 표시
                     gridwidth=1,
                     gridcolor='LightGray'
