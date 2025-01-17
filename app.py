@@ -77,7 +77,7 @@ if password_input == "cmcpl":
             #fig.show()
             #st.set_option('deprecation.showPyplotGlobalUse', False)
 
-            fig.update_traces(textposition="inside", textfont=dict(color="white"))
+            #fig.update_traces(textposition="inside", textfont=dict(color="white"))
             
             st.plotly_chart(fig)
 
