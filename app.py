@@ -27,7 +27,7 @@ if password_input == "cmcpl":
             # 데이터프레임을 Resource와 Start 열을 기준으로 정렬
             #df = df.sort_values(['Resource', 'Start'])            
             # Gantt Chart 만들기
-            df['Text'] = df['Task'] + '<br>' + df['Start'] + '→' + df['Finish']
+            df['Text'] = df['Start'] + '→' + df['Finish'] +" : " + df['Task']
             if option == "Team":
                 fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource", category_orders={"Task": df["Task"].tolist()}, text = "Text")
 
