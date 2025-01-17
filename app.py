@@ -71,6 +71,15 @@ if password_input == "cmcpl":
                     gridcolor='LightGray'
                 )
             )
+
+            # y축 범위 설정 및 그리드 추가
+            fig.update_layout(
+                yaxis=dict(
+                    showgrid=True,      # 그리드 표시
+                    gridwidth=1,
+                    gridcolor='LightGray'
+                )
+            )
     
             # 위에서부터 시작하게 Y축 역방향으로 설정
             fig.update_yaxes(autorange="reversed")
