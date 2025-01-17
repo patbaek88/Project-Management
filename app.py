@@ -27,12 +27,13 @@ if password_input == "cmcpl":
             # 데이터프레임을 Resource와 Start 열을 기준으로 정렬
             #df = df.sort_values(['Resource', 'Start'])            
             # Gantt Chart 만들기
+            df['Text'] = df['Task'] + '<br>' + df['Start'] + '→' + df['Finish']
             if option == "Team":
-                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource", text = "Task")
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource", text = "Text")
 
 
             elif option == "Completion %":
-                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct",  text = "Task")
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct",  text = "Text")
 
 
 
@@ -77,7 +78,7 @@ if password_input == "cmcpl":
             #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.plotly_chart(fig)
 
-            df['Text'] = df['Task'] + '<br>' + df['Start'] + '→' + df['Finish']
+
 
             # 막대 위에 'Task' 이름 추가 (text 속성 사용)
             fig.update_traces(textposition="inside", textfont=dict(color="white"))
