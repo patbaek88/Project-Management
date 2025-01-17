@@ -85,10 +85,12 @@ if password_input == "cmcpl":
             for date in year_ticks:
                 fig.add_vline(
                     x=date,
-                    line_width=2,
+                    line_width=1,
                     line_dash="dash",
                     line_color="black"
                 )
+
+            
             
             # 위에서부터 시작하게 Y축 역방향으로 설정
             fig.update_yaxes(autorange="reversed")
