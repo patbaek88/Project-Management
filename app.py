@@ -28,11 +28,11 @@ if password_input == "cmcpl":
             #df = df.sort_values(['Resource', 'Start'])            
             # Gantt Chart 만들기
             if option == "Team":
-                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource")
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource", text = "Task")
 
 
             elif option == "Completion %":
-                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct")
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct",  text = "Task")
 
 
 
