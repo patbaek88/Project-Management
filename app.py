@@ -29,11 +29,11 @@ if password_input == "cmcpl":
             # Gantt Chart 만들기
             df['Text'] = df['Start'] + '→' + df['Finish'] +" : " + df['Task']
             if option == "Team":
-                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource", category_orders={"Task": df["Task"].tolist()}, text = "Text")
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource", category_orders={"Task": df["Task"].tolist()[::-1]}, text = "Text")
 
 
             elif option == "Completion %":
-                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct",   category_orders={"Task": df["Task"].tolist()}, text = "Text")
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct",   category_orders={"Task": df["Task"].tolist()[::-1]}, text = "Text")
 
 
 
@@ -73,7 +73,7 @@ if password_input == "cmcpl":
             )
     
             # 위에서부터 시작하게 Y축 역방향으로 설정
-            fig.update_yaxes(autorange="reversed")
+            #fig.update_yaxes(autorange="reversed")
             #fig.show()
             #st.set_option('deprecation.showPyplotGlobalUse', False)
 
