@@ -1,8 +1,7 @@
-import streamlit as st
+import plotly.express as px
 import pandas as pd
+import streamlit as st
 import plotly.graph_objects as go
-from datetime import datetime
-import numpy as np
 
 password_input = st.text_input("암호를 입력해주세요",type= "password")
 
@@ -24,30 +23,16 @@ if password_input == "cmcpl":
         st.write("")
         option = st.selectbox("View Gantt Chart by:", ("Team", "Completion %"))
         st.write("Step 3: Generate a Gantt chart")
-        if st.button("Generate a Gantt chart"):    
+        if st.button("Generate a Gantt chart"):       
             # 데이터프레임을 Resource와 Start 열을 기준으로 정렬
             #df = df.sort_values(['Resource', 'Start'])            
             # Gantt Chart 만들기
             if option == "Team":
-                fig = go.Figure(go.Timeline(
-                    x=[df["Start"], df["Finish"]],
-                    y=[df["Task"]],
-                    text=[df["Task"]],
-                    orientation="v",
-                    line=dict(color="blue"),
-                    textposition="bottom center"
-                ))
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource")
 
 
             elif option == "Completion %":
-                fig = go.Figure(go.Timeline(
-                    x=[df["Start"], df["Finish"]],
-                    y=[df["Task"]],
-                    text=[df["Task"]],
-                    orientation="v",
-                    line=dict(color="blue"),
-                    textposition="bottom center"
-                ))
+                fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Completion_pct")
 
 
 
