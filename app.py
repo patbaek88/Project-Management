@@ -67,13 +67,27 @@ if password_input == "cmcpl":
                 )
             )
     
-
+            # 굵은 세로막대 표시를 위한 함수 정의
+            def draw_bold_bars(fig, df, bold_interval):
+                for idx, row in df.iterrows():
+                    if (idx // bold_interval) % 2 == 0:  # 3개월 간격마다 굵은 막대 (bold_interval = 12 / 3)
+                        fig.add_shape(
+                            type="rect",
+                            x0=row['Start'],
+                            x1=row['Finish'],
+                            y0=row['Task'],
+                            y1=row['Task'] + 0.1,  # y 축의 상하 간격 조정 가능
+                            line=dict(color="RoyalBlue", width=2),  # 굵기와 색상 설정
+                            fillcolor='rgba(100,100,100,0.3)'  # 채우기 색 설정 (투명도 포함)
+                        )
             # 위에서부터 시작하게 Y축 역방향으로 설정
             fig.update_yaxes(autorange="reversed")
             #fig.show()
             #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.plotly_chart(fig)
-            
+
+            # GANTT 차트 생성 부분 위에 함수 호출 추가
+            draw_bold_bars(fig, df, 4)  # bold_interval은 3개월 간격
     else:
         st.write("Please upload your file")
 else:
